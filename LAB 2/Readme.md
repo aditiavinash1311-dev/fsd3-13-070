@@ -19,7 +19,7 @@
     - mkdir()
     - rmdir()
     - readdir()
-
+    - rm()
 - metadata/ Information
     - stat()
     - lstat()
@@ -38,3 +38,7 @@
     - unlink
     - link
     - syslink()
+
+
+<!-- CRUD OPERATION -->
+each items id, name, price, quantity
