@@ -1,0 +1,485 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mitti Ka Ghada | Pure Indian Tradition</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, serif;
+        }
+
+        body {
+            background: #fff7e8;
+            color: #4b2618;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: #8b451f;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border: 2px solid #ffe0a3;
+            border-radius: 25px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+            background:
+                radial-gradient(circle at 20% 30%, #f6d6a8 0 2px, transparent 3px),
+                #fff1d6;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .small-title {
+            color: #a0522d;
+            font-size: 18px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #a0522d;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #70412d;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #a0522d;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #71361f;
+        }
+
+        /* MATKA */
+        .matka-area {
+            width: 380px;
+            height: 430px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .matka {
+            width: 245px;
+            height: 280px;
+            background: linear-gradient(
+                90deg,
+                #9b4f28,
+                #d28a4d,
+                #b96735,
+                #8c421f
+            );
+
+            border-radius: 45% 45% 35% 35%;
+            position: relative;
+            box-shadow: 15px 25px 35px rgba(80, 40, 20, 0.3);
+        }
+
+        /* Matka neck */
+        .matka::before {
+            content: "";
+            position: absolute;
+            width: 125px;
+            height: 55px;
+            top: -35px;
+            left: 60px;
+            background: #a9572b;
+            border-radius: 25px 25px 8px 8px;
+            border-bottom: 8px solid #71361f;
+        }
+
+        /* Matka decoration */
+        .matka::after {
+            content: "✦  ✦  ✦";
+            position: absolute;
+            top: 105px;
+            left: 42px;
+            width: 160px;
+            text-align: center;
+            color: #ffe0a3;
+            font-size: 23px;
+        }
+
+        .pattern {
+            position: absolute;
+            top: 150px;
+            left: 30px;
+            width: 185px;
+            height: 55px;
+            border-top: 5px solid #ffe0a3;
+            border-bottom: 5px solid #ffe0a3;
+        }
+
+        .matka-shadow {
+            position: absolute;
+            width: 280px;
+            height: 30px;
+            bottom: 35px;
+            border-radius: 50%;
+            background: rgba(80, 40, 20, 0.2);
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 75px 10%;
+            text-align: center;
+            background: #fffaf0;
+        }
+
+        .features h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #795548;
+            margin-bottom: 45px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff1d6;
+            padding: 35px 25px;
+            border-radius: 15px;
+            border: 1px solid #e5bd8b;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(90, 45, 20, 0.12);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #76503d;
+            line-height: 1.6;
+        }
+
+        /* TRADITION SECTION */
+        .tradition {
+            padding: 75px 10%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: #ead0a7;
+        }
+
+        .rangoli {
+            width: 300px;
+            height: 300px;
+            border: 8px double #8b451f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+            background: #f9e6c5;
+        }
+
+        .tradition-text {
+            max-width: 650px;
+        }
+
+        .tradition h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .tradition p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #613b28;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 10%;
+            text-align: center;
+            background: #a0522d;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .cta .btn {
+            background: #ffe0a3;
+            color: #71361f;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #4b2618;
+            color: #ffe0a3;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .matka-area {
+                transform: scale(0.85);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tradition {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">🏺 Mitti Ka Ghada</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Benefits</a></li>
+            <li><a href="#tradition">Tradition</a></li>
+        </ul>
+
+        <a href="#buy" class="nav-btn">Shop Now</a>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                शुद्ध • प्राकृतिक • भारतीय
+            </div>
+
+            <h1>
+                Thandak Jo<br>
+                <span>Mitti Se Aaye</span>
+            </h1>
+
+            <p>
+                Experience the timeless tradition of drinking naturally
+                cool and refreshing water from a handcrafted Indian
+                mitti ka ghada.
+            </p>
+
+            <a href="#buy" class="btn">
+                Bring Home a Ghada →
+            </a>
+
+        </div>
+
+
+        <div class="matka-area">
+
+            <div class="matka-shadow"></div>
+
+            <div class="matka">
+                <div class="pattern"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+
+        <h2>Why Choose Mitti Ka Ghada?</h2>
+
+        <p class="subtitle">
+            Nature's simple way of keeping your water fresh and cool.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💧</div>
+                <h3>Naturally Cool</h3>
+                <p>
+                    The porous clay allows natural evaporation,
+                    keeping your water pleasantly cool.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌱</div>
+                <h3>100% Natural</h3>
+                <p>
+                    Made from traditional clay without unnecessary
+                    plastic or artificial materials.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🇮🇳</div>
+                <h3>Indian Tradition</h3>
+                <p>
+                    A beautiful part of Indian homes and a tradition
+                    passed down through generations.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRADITION -->
+    <section class="tradition" id="tradition">
+
+        <div class="rangoli">
+            🪔
+        </div>
+
+        <div class="tradition-text">
+
+            <h2>More Than Just a Water Pot</h2>
+
+            <p>
+                From village homes to modern kitchens, the
+                <strong>matka</strong> represents simplicity,
+                sustainability and our connection with the earth.
+                Its earthy fragrance and naturally cool water bring
+                a little piece of traditional India into everyday life.
+            </p>
+
+            <br>
+
+            <p>
+                मिट्टी की खुशबू, ठंडे पानी का स्वाद —
+                यही तो है अपनेपन की बात।
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta" id="buy">
+
+        <h2>Bring Tradition Home 🏺</h2>
+
+        <p>
+            Handcrafted with मिट्टी. Inspired by India.
+        </p>
+
+        <a href="#" class="btn">
+            Buy Your Ghada — ₹799
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Mitti Ka Ghada | Made with मिट्टी & ❤️
+    </footer>
+
+</body>
+</html>
+```
