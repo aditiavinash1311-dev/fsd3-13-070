@@ -1,7 +1,7 @@
 import {createReadStream } from "fs";
 import http from 'http';
 
-const server = http.createServer((req,res)=>{
+const server  bc= http.createServer((req,res)=>{
 if(req.url ==='/'){
     res.setHeader("content-type","text/html");
     res.write(`
