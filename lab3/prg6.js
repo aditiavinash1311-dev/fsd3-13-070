@@ -45,7 +45,8 @@ const server = http.createServer((req, res) => {
     
   } 
   
-  else if (req.url === "/" && req.method === "DELETE") {
+  else if (req.url.startsWith ("/api/v1/products/") && req.method === "DELETE") {
+    const pid = req.url.split('/').pop();
     res.statusCode = 200;
     res.end("DELETE Request");
   } else {
