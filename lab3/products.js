@@ -23,3 +23,12 @@ export const addAllProducts = (item) =>{
     products.push(item);
     return item;
 };
+
+export const deleteproducts = (pid) =>{
+    const item = products.findIndex((prd)=> prd.id === pid);
+    if (item == -1)
+        return false;
+    products.splice(item,1)
+    console.log("products remaining: ",products);
+    return true;
+};
