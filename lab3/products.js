@@ -16,3 +16,10 @@ let nextId = 3;
 export const getAllProducts = () =>{
     return products;
 }
+
+export const addAllProducts = (item) =>{
+    item.id =  nextId;
+    nextId++;
+    products.push(item);
+    return item;
+};
