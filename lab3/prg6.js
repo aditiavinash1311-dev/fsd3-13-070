@@ -1,5 +1,5 @@
 import http from "http";
-import { getAllProducts } from "./products.js";
+import { getAllProducts, addAllProducts } from "./products.js";
 const server = http.createServer((req, res) => {
   if (req.url === "/api/v1/products" && req.method === "GET") {
     res.statusCode = 200;
@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
     // res.end("Get Request");
   } 
   
-  else if (req.url === "/" && req.method === "POST") {
+  else if (req.url === "/api/v1/products" && req.method === "POST") {
     // console.log("Request:",req);
     let body = "";
     req.on("data", (chunk) => {
@@ -23,9 +23,9 @@ const server = http.createServer((req, res) => {
     });
     req.on("end", () => {
       const product = JSON.parse(body);
-      console.log("received product:", product);
+      const item = addAllProducts(product);
       res.statusCode = 201;
-      res.end(JSON.stringify({ msg: "product added", product }));
+      res.end(JSON.stringify({ msg: "product added", data: item }));
     });
   } 
   
