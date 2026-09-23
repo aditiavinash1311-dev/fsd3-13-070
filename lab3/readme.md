@@ -103,3 +103,17 @@ The data is in Json format
   review: 123
 }
 ```
+
+
+# -for request-
+# Get-->
+- no parameters pass to the server when we receive all items.
+
+# post-->
+- to add records we pass the value from body section in JSON format of api tester(echo api).
+
+# delete-->
+- to delete any product we pass parameter that is id of the product from url.
+
+# update-->(put/patch)
+- we pass id from url and data to update from body.
