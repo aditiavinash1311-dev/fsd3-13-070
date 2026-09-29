@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>Courses - Apex Academy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { font-family: 'Inter', sans-serif; }</style></head><body class="bg-gray-50 text-gray-900">
+    <header class="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="text-xl font-extrabold text-gray-900 dark:text-white">APEX ACADEMY</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="courses.html" class="hover:text-indigo-600">Courses</a>
+                <a href="pricing.html" class="hover:text-indigo-600">Pricing Details</a>
+                <a href="registration.html" class="hover:text-indigo-600">Registration</a>
+                <a href="login.html" class="hover:text-indigo-600">Login</a>
+                <a href="feedback.html" class="hover:text-indigo-600">Feedback</a>
+            </nav>
+        </div>
+    </header><main class="max-w-7xl mx-auto p-8"><h1 class="text-3xl font-bold mb-4">Courses Catalog</h1>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-50 text-brand-600 dark:bg-brand-900/40 dark:text-brand-300 uppercase tracking-wider">Academic Excellence</span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4 tracking-tight">Structured Programs for Every Goal</h1>
+                <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">Interactive small-batch learning designed by top rankers and expert educators with proven track records.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button onclick="filterCourses('all')" class="course-filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-brand-600 text-white shadow-md" fdprocessedid="a4ve21">All Classes</button>
+                <button onclick="filterCourses('foundation')" class="course-filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-50" fdprocessedid="vxx02">Grades 6 - 8 (Foundation)</button>
+                <button onclick="filterCourses('highschool')" class="course-filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-50" fdprocessedid="r59rzk">Grades 9 - 10 (Board Prep)</button>
+                <button onclick="filterCourses('competitive')" class="course-filter-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-50" fdprocessedid="8f14mj">JEE / NEET &amp; Senior Secondary</button>
+            </div>
+
+            <!-- Course Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="course-card foundation bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">Grade 6 - 8</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>3 Months / Term</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mathematics &amp; Logical Reasoning</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-6">Build strong core mathematical concepts, arithmetic mastery, geometry, and problem-solving techniques.</p>
+                        <div class="space-y-2 mb-6 border-t border-b border-gray-100 dark:border-slate-700 py-4 text-xs">
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Batch Size:</span><span class="font-semibold text-gray-900 dark:text-white">Max 12 Students</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Schedule:</span><span class="font-semibold text-gray-900 dark:text-white">Mon, Wed, Fri (4 PM - 6 PM)</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Instructor:</span><span class="font-semibold text-brand-600 dark:text-brand-400">Prof. Rajesh Kumar (M.Sc)</span></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-3 pt-2">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Tuition Fee</span>
+                            <span class="text-lg font-black text-gray-900 dark:text-white">$149<span class="text-xs text-gray-400 font-normal">/mo</span></span>
+                        </div>
+                        <button onclick="openCourseModal('Mathematics &amp; Logical Reasoning (Grades 6-8)', 'Master essential math concepts with visual problem solving, weekly quizzes, and regular parent progress reports.')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-colors" fdprocessedid="bgvigzc">
+                            View Syllabus
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card highschool bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">Grade 9 - 10</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>6 Months</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Integrated Science (Physics &amp; Chem)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-6">Comprehensive conceptual coverage, practical lab demonstrations, board exam prep, and sample papers.</p>
+                        <div class="space-y-2 mb-6 border-t border-b border-gray-100 dark:border-slate-700 py-4 text-xs">
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Batch Size:</span><span class="font-semibold text-gray-900 dark:text-white">Max 15 Students</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Schedule:</span><span class="font-semibold text-gray-900 dark:text-white">Tue, Thu, Sat (5 PM - 7 PM)</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Instructor:</span><span class="font-semibold text-brand-600 dark:text-brand-400">Dr. Sarah Jenkins (Ph.D)</span></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-3 pt-2">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Tuition Fee</span>
+                            <span class="text-lg font-black text-gray-900 dark:text-white">$199<span class="text-xs text-gray-400 font-normal">/mo</span></span>
+                        </div>
+                        <button onclick="openCourseModal('Integrated Science (Grades 9-10)', 'Covers physics laws, chemical reactions, formulas, and rigorous practice exams for 95%+ board target.')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-colors" fdprocessedid="d2eetc">
+                            View Syllabus
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card competitive bg-white dark:bg-slate-800 rounded-3xl p-6 border border-brand-500/40 dark:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Popular</div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300">Grade 11 - 12 / JEE / NEET</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>1 Year Full Pack</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-slate-700 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Advanced Chemistry &amp; Organic Synthesis</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-6">In-depth physical, inorganic, and organic chemistry tailored for top rankers in engineering and medical entrance tests.</p>
+                        <div class="space-y-2 mb-6 border-t border-b border-gray-100 dark:border-slate-700 py-4 text-xs">
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Batch Size:</span><span class="font-semibold text-gray-900 dark:text-white">Max 10 Students</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Schedule:</span><span class="font-semibold text-gray-900 dark:text-white">Mon to Fri (6 PM - 8 PM)</span></div>
+                            <div class="flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400">Instructor:</span><span class="font-semibold text-brand-600 dark:text-brand-400">Prof. Ananya Roy (IIT Kanpur)</span></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-3 pt-2">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Tuition Fee</span>
+                            <span class="text-lg font-black text-gray-900 dark:text-white">$279<span class="text-xs text-gray-400 font-normal">/mo</span></span>
+                        </div>
+                        <button onclick="openCourseModal('Advanced Chemistry (JEE/NEET)', 'Deep dive into organic mechanisms, stoichiometry, electrochemistry, and weekly speed mock tests.')" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-colors" fdprocessedid="n6pfba">
+                            View Syllabus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <footer class="bg-slate-950 text-white py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+            <p>© 2026 Apex Academy Tuition Classes. All rights reserved.</p>
+            <div class="flex space-x-4 text-base">
+                <a href="https://facebook.com" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" class="hover:text-white"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://whatsapp.com" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer></body></html>

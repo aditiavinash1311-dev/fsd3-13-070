@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><title>Pricing Details - Apex Academy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { font-family: 'Inter', sans-serif; }</style></head><body class="bg-gray-50 text-gray-900">
+    <header class="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="text-xl font-extrabold text-gray-900 dark:text-white">APEX ACADEMY</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="courses.html" class="hover:text-indigo-600">Courses</a>
+                <a href="pricing.html" class="hover:text-indigo-600">Pricing Details</a>
+                <a href="registration.html" class="hover:text-indigo-600">Registration</a>
+                <a href="login.html" class="hover:text-indigo-600">Login</a>
+                <a href="feedback.html" class="hover:text-indigo-600">Feedback</a>
+            </nav>
+        </div>
+    </header><main class="max-w-7xl mx-auto p-8"><h1 class="text-3xl font-bold mb-4">Fee & Pricing Details</h1>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 uppercase tracking-wider">Transparent Tuition Fees</span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4 tracking-tight">Simple, Value-Driven Plans</h1>
+                <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">No hidden costs. Quality tuition backed by scholarship opportunities and flexible installment plans.</p>
+            </div>
+
+            <!-- Fee Interactive Calculator Card -->
+            <div class="bg-gradient-to-r from-brand-600 to-indigo-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl mb-16">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-xl sm:text-2xl font-extrabold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-amber-300"></i> Instant Custom Fee Calculator
+                    </h3>
+                    <p class="text-indigo-100 text-xs sm:text-sm mb-6">Select your options below to estimate your exact monthly tuition cost.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-indigo-100">Grade Level</label>
+                            <select id="calc-grade" onchange="calculateFee()" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="120" class="text-gray-900">Grades 6 - 8 ($120/sub)</option>
+                                <option value="160" class="text-gray-900">Grades 9 - 10 ($160/sub)</option>
+                                <option value="220" selected="" class="text-gray-900">Grades 11 - 12 / Competitive ($220/sub)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-indigo-100">Number of Subjects</label>
+                            <select id="calc-subjects" onchange="calculateFee()" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="1" class="text-gray-900">1 Subject</option>
+                                <option value="2" selected="" class="text-gray-900">2 Subjects (10% Off)</option>
+                                <option value="3" class="text-gray-900">3 Subjects (15% Off)</option>
+                                <option value="4" class="text-gray-900">4+ Subjects Full Pack (20% Off)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-indigo-100">Learning Mode</label>
+                            <select id="calc-mode" onchange="calculateFee()" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="1" class="text-gray-900">Online Interactive Classes</option>
+                                <option value="1.15" class="text-gray-900">Offline Campus Center (+15%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-white/20">
+                        <div>
+                            <span class="text-xs text-indigo-200 uppercase font-semibold">Estimated Monthly Fee</span>
+                            <div class="text-3xl sm:text-4xl font-black text-amber-300" id="calc-total">$396 <span class="text-sm text-white font-normal">/ month</span></div>
+                        </div>
+                        <button onclick="switchView('registration')" class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold px-6 py-3 rounded-xl text-sm transition-all shadow-md">
+                            Enroll With This Estimate <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Standard Batch -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Standard Batch</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1 mb-6">Ideal for regular school curriculum reinforcement.</p>
+                    <div class="text-4xl font-black text-gray-900 dark:text-white mb-6">$149 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                    <ul class="space-y-3 text-xs text-gray-600 dark:text-gray-300 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Up to 15 students per batch</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> 3 live classes weekly per subject</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Chapter tests &amp; PDF notes</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Bi-weekly doubt clearing sessions</li>
+                    </ul>
+                    <button onclick="switchView('registration')" class="w-full bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-gray-900 dark:text-white font-bold py-3 rounded-xl text-xs transition-colors">Select Standard Plan</button>
+                </div>
+
+                <!-- Pro Competitor -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border-2 border-brand-600 dark:border-brand-500 shadow-xl relative">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-black uppercase px-4 py-1 rounded-full tracking-widest shadow-md">Most Recommended</span>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Pro Rank Booster</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1 mb-6">Designed for Board Toppers and Competitive Aspirants.</p>
+                    <div class="text-4xl font-black text-brand-600 dark:text-brand-400 mb-6">$249 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                    <ul class="space-y-3 text-xs text-gray-600 dark:text-gray-300 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Small batch (Max 8 students)</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> 5 live classes + 1-on-1 mentor</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Unlimited test series &amp; analysis</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Parent-Teacher monthly reviews</li>
+                    </ul>
+                    <button onclick="switchView('registration')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-lg shadow-brand-600/20">Enroll in Pro Ranker</button>
+                </div>
+
+                <!-- 1-on-1 Elite -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">1-on-1 Personal Mentorship</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs mt-1 mb-6">Exclusive single-student focused customized coaching.</p>
+                    <div class="text-4xl font-black text-gray-900 dark:text-white mb-6">$450 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                    <ul class="space-y-3 text-xs text-gray-600 dark:text-gray-300 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Dedicated top tutor per subject</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Custom flexible timing schedule</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> Personalized speed &amp; curriculum</li>
+                        <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-emerald-500"></i> 24/7 WhatsApp tutor assistance</li>
+                    </ul>
+                    <button onclick="switchView('registration')" class="w-full bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-gray-900 dark:text-white font-bold py-3 rounded-xl text-xs transition-colors">Request 1-on-1 Mentor</button>
+                </div>
+            </div>
+        </main>
+    <footer class="bg-slate-950 text-white py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+            <p>© 2026 Apex Academy Tuition Classes. All rights reserved.</p>
+            <div class="flex space-x-4 text-base">
+                <a href="https://facebook.com" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" class="hover:text-white"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://whatsapp.com" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer></body></html>

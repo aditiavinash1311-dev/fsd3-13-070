@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>Registration - Apex Academy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { font-family: 'Inter', sans-serif; }</style></head><body class="bg-gray-50 text-gray-900">
+    <header class="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="text-xl font-extrabold text-gray-900 dark:text-white">APEX ACADEMY</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="courses.html" class="hover:text-indigo-600">Courses</a>
+                <a href="pricing.html" class="hover:text-indigo-600">Pricing Details</a>
+                <a href="registration.html" class="hover:text-indigo-600">Registration</a>
+                <a href="login.html" class="hover:text-indigo-600">Login</a>
+                <a href="feedback.html" class="hover:text-indigo-600">Feedback</a>
+            </nav>
+        </div>
+    </header><main class="max-w-4xl mx-auto p-8">
+            <div class="text-center mb-10">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 uppercase tracking-wider">Join Apex Academy</span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3 mb-2">Student Registration Form</h1>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Fill in the details below to reserve your slot for the upcoming batch demo classes.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-slate-700 shadow-xl">
+                <form id="registration-form" onsubmit="handleRegistrationSubmit(event)" class="space-y-6">
+                    
+                    <!-- Student Info -->
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 border-b border-gray-100 dark:border-slate-700 pb-2">
+                            <i class="fa-solid fa-user-graduate text-brand-600"></i> Student Information
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+                                <input type="text" required="" placeholder="e.g. Alex Johnson" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
+                                <input type="email" required="" placeholder="student@example.com" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Phone Number *</label>
+                                <input type="tel" required="" placeholder="+1 (555) 000-0000" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Grade / Level *</label>
+                                <select required="" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                                    <option value="">Select Student Grade</option>
+                                    <option>Grade 6</option>
+                                    <option>Grade 7</option>
+                                    <option>Grade 8</option>
+                                    <option>Grade 9</option>
+                                    <option>Grade 10 (Board Exam)</option>
+                                    <option>Grade 11 (JEE/NEET Prep)</option>
+                                    <option>Grade 12 (JEE/NEET Prep)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course & Preferences -->
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 border-b border-gray-100 dark:border-slate-700 pb-2">
+                            <i class="fa-solid fa-book-bookmark text-brand-600"></i> Course &amp; Batch Preferences
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Subjects Required *</label>
+                                <select required="" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                                    <option>Mathematics &amp; Physics</option>
+                                    <option>Full Science Combination (PCM)</option>
+                                    <option>Biology &amp; Chemistry (PCB)</option>
+                                    <option>All Subjects Combined</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Preferred Time Slot *</label>
+                                <select required="" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                                    <option>Evening Batch (4 PM - 6 PM)</option>
+                                    <option>Late Evening Batch (6 PM - 8 PM)</option>
+                                    <option>Weekend Intensive (Sat &amp; Sun)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parent/Guardian Info -->
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 border-b border-gray-100 dark:border-slate-700 pb-2">
+                            <i class="fa-solid fa-user-shield text-brand-600"></i> Parent / Guardian Information
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Parent Name *</label>
+                                <input type="text" required="" placeholder="Parent or Guardian" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Emergency Contact *</label>
+                                <input type="tel" required="" placeholder="Parent Phone Number" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-600 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-2">
+                        <input type="checkbox" id="terms" required="" class="rounded text-brand-600 focus:ring-brand-500">
+                        <label for="terms" class="text-xs text-gray-600 dark:text-gray-400">I agree to the terms and request a free 3-day demo class callback.</label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-brand-600/20">
+                        Submit Enrollment Application
+                    </button>
+                </form>
+            </div>
+        </main>
+    <footer class="bg-slate-950 text-white py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+            <p>© 2026 Apex Academy Tuition Classes. All rights reserved.</p>
+            <div class="flex space-x-4 text-base">
+                <a href="https://facebook.com" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" class="hover:text-white"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://whatsapp.com" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer></body></html>

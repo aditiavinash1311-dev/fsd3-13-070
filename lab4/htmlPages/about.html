@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AURA Mobile | Pioneering Next-Gen Hardware</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            purple: '#4facfe',
+                            violet: '#7f00ff',
+                            dark: '#080810',
+                            card: '#121220',
+                            border: '#2a2a40'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #05050a;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(18, 18, 32, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(8, 8, 16, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #7f00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #7f00ff 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            opacity: 0.92;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: linear-gradient(180deg, #00f2fe 0%, #7f00ff 100%);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-cyan selection:text-black">
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="glow-bg bg-brand-cyan top-0 left-1/3"></div>
+    <div class="glow-bg bg-brand-violet top-1/2 right-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl btn-gradient flex items-center justify-center text-black font-black text-xl shadow-lg">
+                        X
+                    </div>
+                    <span class="text-2xl font-black tracking-wider text-white">AURA<span class="text-brand-cyan">.</span></span>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                    <a href="index.html" class="hover:text-brand-cyan transition-colors">Products</a>
+                    <a href="#vision" class="text-brand-cyan transition-colors">Our Vision</a>
+                    <a href="#story" class="hover:text-brand-cyan transition-colors">Story</a>
+                    <a href="#values" class="hover:text-brand-cyan transition-colors">Values</a>
+                    <a href="#leadership" class="hover:text-brand-cyan transition-colors">Leadership</a>
+                    <a href="#sustainability" class="hover:text-brand-cyan transition-colors">Sustainability</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button onclick="openCareerModal()" class="btn-gradient text-black font-bold px-6 py-2.5 rounded-full text-sm flex items-center gap-2">
+                        <span>Join Our Team</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white">Products</a>
+            <a href="#vision" class="block px-3 py-2 rounded-md text-base text-white font-medium">Our Vision</a>
+            <a href="#story" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white">Story</a>
+            <a href="#values" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white">Values</a>
+            <a href="#leadership" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white">Leadership</a>
+            <a href="#sustainability" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white">Sustainability</a>
+            <button onclick="openCareerModal()" class="w-full mt-2 btn-gradient text-black font-bold px-6 py-3 rounded-xl">
+                Join Our Team
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="vision" class="pt-36 pb-20 md:pt-44 md:pb-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-brand-cyan/30 text-brand-cyan text-xs font-semibold tracking-wide uppercase mb-6 animate-pulse-slow">
+                <span class="w-2 h-2 rounded-full bg-brand-cyan"></span>
+                Crafting Tomorrow's Mobile Experience
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight max-w-5xl mx-auto mb-8">
+                Engineering the Future of <br>
+                <span class="text-gradient">Human Connection.</span>
+            </h1>
+
+            <p class="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-12">
+                At AURA, we believe technology should be an invisible extensions of your ambition. We combine aerospace materials, ethical neural AI, and sustainable engineering to reimagine mobile hardware from the atomic level up.
+            </p>
+
+            <!-- Counter Statistics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="10">0</span>M+</div>
+                    <div class="text-xs text-brand-cyan font-medium uppercase tracking-wider">Global Users</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="145">0</span>+</div>
+                    <div class="text-xs text-brand-purple font-medium uppercase tracking-wider">Patents Granted</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="100">0</span>%</div>
+                    <div class="text-xs text-brand-violet font-medium uppercase tracking-wider">Recycled Aluminum</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="120">0</span>+</div>
+                    <div class="text-xs text-emerald-400 font-medium uppercase tracking-wider">Countries Shipped</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="story" class="py-24 bg-black/40 border-t border-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-xs font-bold text-brand-cyan tracking-widest uppercase mb-2">Our Evolution</h2>
+                <p class="text-3xl sm:text-5xl font-extrabold text-white">How AURA Was Born.</p>
+                <p class="text-gray-400 mt-3">From a garage optical prototype to an international tech ecosystem.</p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative timeline-line space-y-12 md:space-y-16">
+                
+                <!-- Event 1 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 md:text-right pr-0 md:pr-8 mb-6 md:mb-0 pl-12 md:pl-0">
+                        <span class="text-xs font-mono text-brand-cyan font-bold">2021 • FOUNDING</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">The Spark of Innovation</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Founded by former aerospace hardware engineers in Silicon Valley with a mission to eliminate bloatware and build unyielding, high-craft mobile devices.
+                        </p>
+                    </div>
+                    <!-- Center Badge -->
+                    <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full btn-gradient flex items-center justify-center text-black font-bold z-10 shadow-lg">
+                        <i class="fa-solid fa-lightbulb text-sm"></i>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pl-8">
+                        <div class="glass-card p-4 rounded-2xl border border-gray-800 text-xs text-gray-400 italic">
+                            "We asked ourselves: Why should phones compromise between camera power and battery longevity?"
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 pl-12 md:pl-8 order-2 md:order-1">
+                        <div class="glass-card p-4 rounded-2xl border border-gray-800 text-xs text-gray-400 italic">
+                            Over 1,200 prototype iterations before achieving the ultra-thin Titanium chassis architecture.
+                        </div>
+                    </div>
+                    <!-- Center Badge -->
+                    <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full btn-gradient flex items-center justify-center text-black font-bold z-10 shadow-lg">
+                        <i class="fa-solid fa-microchip text-sm"></i>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pl-0 md:pl-8 mb-6 md:mb-0 order-1 md:order-2">
+                        <span class="text-xs font-mono text-brand-purple font-bold">2023 • BREAKTHROUGH</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">First Quantum Bionic Chipset</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Patented our custom 3nm micro-architecture neural engine, drastically reducing heat while enabling real-time computational photography on-device.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 md:text-right pr-0 md:pr-8 mb-6 md:mb-0 pl-12 md:pl-0">
+                        <span class="text-xs font-mono text-brand-violet font-bold">2025 • SCALING</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Global Launch & Zero-Carbon Pledge</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Expanded distribution to 120+ countries and transitioned all manufacturing plants to 100% renewable solar power with modular repairability.
+                        </p>
+                    </div>
+                    <!-- Center Badge -->
+                    <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full btn-gradient flex items-center justify-center text-black font-bold z-10 shadow-lg">
+                        <i class="fa-solid fa-earth-americas text-sm"></i>
+                    </div>
+                    <div class="w-full md:w-5/12 pl-12 md:pl-8">
+                        <div class="glass-card p-4 rounded-2xl border border-gray-800 text-xs text-gray-400 italic">
+                            Awarded 2025 Green Tech Pioneer for 100% plastic-free packaging and recycled titanium frames.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-cyan tracking-widest uppercase mb-2">What Drives Us</h2>
+                <p class="text-3xl sm:text-5xl font-extrabold text-white">Our Core Principles.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="glass-card rounded-3xl p-8 hover:border-brand-cyan/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Uncompromising Craft</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Every button travel, haptic buzz, and screen curve is engineered with sub-micron tolerances.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:border-brand-purple/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-purple/10 flex items-center justify-center text-brand-purple text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Absolute Privacy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Your data belongs to you. All AI computations are processed locally on the AURA Secure Vault chip.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:border-brand-violet/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-violet/10 flex items-center justify-center text-brand-violet text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Circular Engineering</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We design for easy repair, component recycling, and zero landfill impact.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-infinity"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Long-Term Vision</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Guaranteed 7 years of OS updates and modular battery replacements for every device we craft.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section id="leadership" class="py-24 bg-black/50 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-cyan tracking-widest uppercase mb-2">Meet the Visionaries</h2>
+                <p class="text-3xl sm:text-5xl font-extrabold text-white">The Minds Behind AURA.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Member 1 -->
+                <div class="glass-card rounded-3xl p-6 text-center group hover:border-gray-700 transition-all">
+                    <div class="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-brand-cyan/40">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Elena Vance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Elena Vance</h3>
+                    <p class="text-xs text-brand-cyan font-medium mb-3">Co-Founder & CEO</p>
+                    <p class="text-xs text-gray-400 line-clamp-2 mb-4">Ex-Aerospace lead passionate about radical hardware simplification.</p>
+                    <button onclick="openBioModal('Elena Vance', 'Co-Founder & CEO', 'Elena spent 12 years in aerospace engineering before founding AURA in 2021. Her vision centers on building hardware that feels like second nature while advocating for 100% sustainable materials.')" class="text-xs font-bold text-white hover:text-brand-cyan underline">View Full Bio</button>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="glass-card rounded-3xl p-6 text-center group hover:border-gray-700 transition-all">
+                    <div class="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-brand-purple/40">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Marcus Chen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Marcus Chen</h3>
+                    <p class="text-xs text-brand-purple font-medium mb-3">Chief Technology Officer</p>
+                    <p class="text-xs text-gray-400 line-clamp-2 mb-4">Pioneer in 3nm micro-architecture neural processor design.</p>
+                    <button onclick="openBioModal('Marcus Chen', 'Chief Technology Officer', 'Marcus holds over 30 patents in neural network silicon design. He leads our 200+ hardware and chip architecture engineers at AURA Labs.')" class="text-xs font-bold text-white hover:text-brand-purple underline">View Full Bio</button>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="glass-card rounded-3xl p-6 text-center group hover:border-gray-700 transition-all">
+                    <div class="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-brand-violet/40">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Aria Sterling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Aria Sterling</h3>
+                    <p class="text-xs text-brand-violet font-medium mb-3">Head of Industrial Design</p>
+                    <p class="text-xs text-gray-400 line-clamp-2 mb-4">Award-winning minimalist designer inspired by organic geometry.</p>
+                    <button onclick="openBioModal('Aria Sterling', 'Head of Industrial Design', 'Aria spearheaded the Grade 5 Titanium chassis design. She balances tactile luxury with environmental repairability across all product lines.')" class="text-xs font-bold text-white hover:text-brand-violet underline">View Full Bio</button>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="glass-card rounded-3xl p-6 text-center group hover:border-gray-700 transition-all">
+                    <div class="relative w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-emerald-400/40">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="David O'Connor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-bold text-white">David O'Connor</h3>
+                    <p class="text-xs text-emerald-400 font-medium mb-3">VP of Sustainability</p>
+                    <p class="text-xs text-gray-400 line-clamp-2 mb-4">Leading our carbon-neutral initiative and supply chain ethics.</p>
+                    <button onclick="openBioModal('David O\'Connor', 'VP of Sustainability', 'David oversees AURA\'s circular supply chain, ensuring 100% ethical mineral sourcing and zero-waste factory operations worldwide.')" class="text-xs font-bold text-white hover:text-emerald-400 underline">View Full Bio</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Philosophy -->
+    <section id="sustainability" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 lg:p-12 border border-emerald-500/20 bg-gradient-to-br from-brand-card to-emerald-950/20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase">Our Green Promise</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                            Zero Carbon Footprint. <br>100% Recyclable Material.
+                        </h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            We don't just ship phones; we protect the planet. AURA devices utilize 100% recycled titanium alloys, cobalt, and ocean-bound plastics for internal brackets. Our packaging contains zero single-use plastics.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800">
+                            <div>
+                                <div class="text-xl font-bold text-white">Zero</div>
+                                <div class="text-xs text-gray-400">Single-use Plastic</div>
+                            </div>
+                            <div>
+                                <div class="text-xl font-bold text-white">100%</div>
+                                <div class="text-xs text-gray-400">Solar Powered Factories</div>
+                            </div>
+                            <div>
+                                <div class="text-xl font-bold text-white">Easy</div>
+                                <div class="text-xs text-gray-400">Self-Repair Kits</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-4 border-emerald-500/30 flex items-center justify-center relative animate-float">
+                            <i class="fa-solid fa-leaf text-6xl text-emerald-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="py-20 text-center relative">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Ready to Build the Future?</h2>
+            <p class="text-gray-400 text-base mb-8">We are actively hiring visionary hardware developers, AI researchers, and UI designers worldwide.</p>
+            <button onclick="openCareerModal()" class="btn-gradient text-black font-bold px-8 py-4 rounded-full text-base shadow-xl">
+                Explore Open Positions
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
+            <p>© 2026 AURA Mobile Inc. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="index.html" class="hover:text-gray-400">Products</a>
+                <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bio Modal -->
+    <div id="bio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+        <div class="glass-card max-w-md w-full rounded-3xl p-6 relative border border-gray-800">
+            <button onclick="closeBioModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 id="bio-name" class="text-2xl font-bold text-white mb-1"></h3>
+            <p id="bio-title" class="text-xs text-brand-cyan font-semibold mb-4"></p>
+            <p id="bio-desc" class="text-gray-300 text-xs leading-relaxed mb-6"></p>
+            <button onclick="closeBioModal()" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-bold text-xs">Close</button>
+        </div>
+    </div>
+
+    <!-- Career / Contact Modal -->
+    <div id="career-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 relative border border-gray-800">
+            <button onclick="closeCareerModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 class="text-2xl font-bold text-white mb-2">Join AURA Team</h3>
+            <p class="text-xs text-gray-400 mb-6">Send your CV and portfolio to our talent team.</p>
+            <form onsubmit="handleCareerSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full bg-black/50 border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Email</label>
+                    <input type="email" required placeholder="jane@example.com" class="w-full bg-black/50 border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Department</label>
+                    <select class="w-full bg-black/50 border border-gray-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-cyan">
+                        <option>Hardware & Chip Engineering</option>
+                        <option>AURA OS Software</option>
+                        <option>Industrial Design</option>
+                        <option>Sustainability & Logistics</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full btn-gradient text-black font-bold py-3.5 rounded-xl text-sm shadow-lg">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Bio Modal
+        function openBioModal(name, title, desc) {
+            document.getElementById('bio-name').textContent = name;
+            document.getElementById('bio-title').textContent = title;
+            document.getElementById('bio-desc').textContent = desc;
+            document.getElementById('bio-modal').classList.remove('hidden');
+        }
+        function closeBioModal() {
+            document.getElementById('bio-modal').classList.add('hidden');
+        }
+
+        // Career Modal
+        function openCareerModal() {
+            document.getElementById('career-modal').classList.remove('hidden');
+        }
+        function closeCareerModal() {
+            document.getElementById('career-modal').classList.add('hidden');
+        }
+        function handleCareerSubmit(e) {
+            e.preventDefault();
+            alert('Application submitted successfully! Our team will contact you soon.');
+            closeCareerModal();
+        }
+
+        // Animated Statistics Counter
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        function startCounters() {
+            counters.forEach(counter => {
+                const animate = () => {
+                    const value = +counter.getAttribute('data-target');
+                    const data = +counter.innerText;
+                    const time = value / speed;
+                    if (data < value) {
+                        counter.innerText = Math.ceil(data + time);
+                        setTimeout(animate, 15);
+                    } else {
+                        counter.innerText = value;
+                    }
+
+                }
+                animate();
+            });
+        }
+
+        // Trigger counters when scrolled into view
+        let counted = false;
+        window.addEventListener('scroll', () => {
+            const visionSection = document.getElementById('vision');
+            if (visionSection && window.scrollY > visionSection.offsetTop - 400 && !counted) {
+                startCounters();
+                counted = true;
+            }
+        });
+        // Initial trigger if already in viewport
+        startCounters();
+    </script>
+</body>
+</html>
